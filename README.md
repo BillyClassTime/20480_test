@@ -1,6 +1,14 @@
 # 20480 test
 
-corresponde a las preguntas 3
+corresponde a las preguntas :
+
+faltarían las preguntas 126 y 58
+
+
+
+espero tenerlas a lo largo del fin de semana
+
+Si veís algun error o no entendeís algo mandarme un mail a juan_diaz44@hotmail.com
 
 
  
