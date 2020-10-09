@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="100%, initial-scale=1.0">
+    <title>Pregunta 194</title>
+    <link href="site.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function ValidationException(number, message) {
+            this.message = message;
+            this.name = "myLibrary Validation Exception";
+            this.number = number;
+
+        }
+        function myfunction(dayOfWeek) {
+            if (dayOfWeek > 7) {
+                throw new  ValidationException(123, "Day of week must be les3 than 7");
+            }
+            alert("dame algo mayor que 7");
+        }
+
+        function doWork() {
+            var value = document.getElementById("numero").value;
+            try {
+                myfunction(value);
+            }
+            catch (e) {
+                alert("se ha producido una excepción con numero; " + e.number + " , mensaje:  " + e.message + " , name: " + e.name);
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <nav>
+        <a href="" id="anterior"></a>
+        <a href="" id="siguiente"></a>
+    </nav>
+    <h1 class="container">QUESTION 194</h1>
+    <section class="page-section">
+        <div class="container pregunta">
+            <p>
+                nota: en el pdf hay una errata en la opcion A<br />
+                throw new ValidationException<span style="text-decoration:line-through"> .Exception</span>(123, "Day of week must be les3 than 7");<br />
+                debe poner<br />
+                throw new ValidationException (123, "Day of week must be les3 than 7");
+            </p>
+
+
+            <p class="es">
+                Está desarrollando una biblioteca de JavaScript.<br />
+                Tiene los siguientes requisitos:<br />
+                Las excepciones personalizadas deben incluir un mensaje de error y un número de error personalizado.<br />
+                Estas excepciones deben lanzarse cuando ocurren errores de validación de datos.<br />
+                Los desarrolladores deben llamar a la biblioteca para detectar fácilmente la excepción e identificar el problema.<br />
+                Desarrolla el siguiente código. (Los números de línea se incluyen solo como referencia).<br />
+            </p>
+            <p class="en">
+                You are developing a JavaScript library. <br />
+                You have the following requirements: <br />
+                Custom exceptions must include an error message and custom error number. <br />
+                These exceptions must be thrown when data validation errors occur. <br />
+                Developers must call the library to easily catch the exception and identify the problem. <br />
+                You develop the following code. (Line numbers are included for reference only.) <br />
+            </p>
+            <xmp>
+                01 function ValidationException (number, message){
+                02 this.message = message;
+                03 this.name = "myLibrary Validation Exception";
+                04 this.number = number;
+                05 }
+                06
+                07 function myfunction(dayOfWeek) {
+                08 if (dayOfWeek >7){
+                09
+                10  }
+                11  }
+            </xmp>
+            <p class="es">
+                Debe completar el código para cumplir con los requisitos. <br />
+                ¿Qué línea de código debería insertar en la línea 09? <br />
+
+            </p>
+            <p class="en">
+                You need to complete the code to meet the requirements. <br />
+                Which line of code should you insert at line 09? <br />
+            </p>
+            <p>
+                A. <strong>throw new</strong> ValidationException  (123, "Day of week must be les3 than 7"); <br />
+                B. <strong>return</strong> new ValidationException(123, "Day of week must be less than 7"); <br />
+                C. <strong>throw</strong> ValidationException(123, "Day of week must be less than 7"); <br />
+                D. <strong>catch</strong> ValidationException(123, "Day of week: must be less than 7");
+            </p>
+            <hr />
+            <p>
+                Por eliminación:<br />
+                <span style="color:red;text-decoration:line-through">B  return new ValidationException(123, "Day of week must be less than 7");</span><br />
+                return sale de la funcion no maneja excepciones DESCARTADA<br />
+                <span style="color:red;text-decoration:line-through"> D. catch ValidationException(123, "Day of week: must be less than 7");</span><br />
+                catch bloque try {} catch{} es donde se pone el código cuando falla pero como no hay try DESCARTADA<br />
+                Me quedan los dos <strong>throw</strong> <br />
+                la diferencia es que el <strong>new</strong><br />
+                para lanzar algo debe existir (en un bloque catch(e) e ya existe) pero aqui no existe !!!<br />
+                Luego descarto la <span style="color:red;text-decoration:line-through">C. throw ValidationException(123, "Day of week must be less than 7"); <br /></span>
+            </p>
+
+
+
+
+
+            <p class="es">
+                SOLUCION A <br />
+                throw new ValidationException  (123, "Day of week must be les3 than 7");<br />
+            </p>
+            <p class="en">
+                SOLUCION A <br />
+                throw new ValidationException  (123, "Day of week must be les3 than 7");<br />
+            </p>
+
+            <fieldset>
+                <legend>Para que salte alguna excepción  mayor que 6</legend>
+                <label for="numero">Numero:</label>
+                <input type="number" id="numero" /> &nbsp;
+            </fieldset>
+            <input type="button" onclick="doWork()" value="Try" />
+            <xmp>
+
+                function ValidationException(number, message) {
+                    this.message = message;
+                    this.name = "myLibrary Validation Exception";
+                    this.number = number;
+
+                }
+                function myfunction(dayOfWeek) {
+                    if (dayOfWeek > 7) {
+                         throw new  ValidationException(123, "Day of week must be les3 than 7");
+                    }
+                    alert("dame algo mayor que 7");
+                    }
+
+                function doWork() {
+                    var value = document.getElementById("numero").value;
+                    try {
+                    myfunction(value);
+                    }
+                    catch (e) {
+                    alert("se ha producido una excepción con numero; " + e.number + " , mensaje:  " + e.message + " , name: " + e.name);
+                    }
+
+                }
+            </xmp>
+                
+
+
+
+                    </p>
+                    <p class="es">
+                        Explanation/Reference:<br />
+                        Explanation:<br />
+                        Example:<br />
+                        if (value < -100 || value > 100)<br />
+                        {<br />
+                        throw new ValidationException(String.Format("Value is {0} than {1}.",<br />
+                        (value > 100 ? "greater" : "less"), value));<br />
+                        }<br />
+                    </p>
+                    <p class="en">
+                        Explanation/Reference:<br />
+                        Explanation:<br />
+                        Example:<br />
+                        if (value < -100 || value > 100)<br />
+                        {<br />
+                        throw new ValidationException(String.Format("Value is {0} than {1}.",<br />
+                        (value > 100 ? "greater" : "less"), value));<br />
+                        }<br />
+                    </p>
+</div>
+    </section>
+  
+    <script lang="javascript" src="nav.js"></script>
+    <script lang="javascript" src="preguntas.js"></script>
+
+</body>
+</html>

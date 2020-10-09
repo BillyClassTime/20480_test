@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="100%, initial-scale=1.0">
+    <title>Pregunta 278</title>
+    <link href="site.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+</head>
+
+<body>
+    <nav>
+        <a href="" id="anterior"></a>
+        <a href="" id="siguiente"></a>
+    </nav>
+    <h1  class ="container">QUESTION 278</h1>
+    <section class="page-section">
+        <div class="container pregunta"> 
+            <div class="es" >
+                <p>Tienes el siguiente marcado:</p>
+<xmp>
+    <form name="myForm" action="doSomething.aspx"
+    onsubmit="return validateForm()" method="POST">
+        first name: <input type="text" name="fname">
+        <input type="submit" value="Submit">
+    </form>
+</xmp>
+               <p>Debe asegurarse de que el formulario se pueda enviar solo si fname contiene datos.<br>
+                Escribe el siguiente código.<br>
+<pre>
+    function validateForm () {
+        var x=document.forms[<span style="background-color: yellow;">Target 1</span>] [<span style="background-color: yellow;">Target 2</span>].value;
+        if (x <span style="background-color: yellow;">Target 3</span> null <span style="background-color: yellow;">Target 4</span>x <span style="background-color: yellow;">Target 5</span> "")
+        { 
+            alert ("first name must be filled out"):
+            return false;
+        }
+</pre>               
+                Cada elemento de código puede usarse una vez, más de una vez o no usarse en absoluto. Es posible que deba arrastrar la barra dividida<br>
+                entre paneles o desplazarse para ver el contenido.<br>
+                NOTA: Cada selección correcta vale un punto.</p>
+
+                <span style="text-decoration: underline">elementos de código:</span> 
+<ul>
+    <li>!= </li>
+    <li>"fname" </li>
+    <li>"myForm"</li>
+    <li>&&</li>
+    <li>|| </li>
+    <li>== </li>
+</ul>
+            </div>
+            <div class ="en">
+                <p>You have the following markup.</p>
+<xmp>
+    <form name="myForm" action="doSomething.aspx"
+    onsubmit="return validateForm()" method="POST">
+        first name: <input type="text" name="fname">
+        <input type="submit" value="Submit">
+    </form>
+</xmp>
+<p> You need to ensure that the form can be submitted only if fname contains data.<br>
+You write the following code. </p>
+<pre>
+    function validateForm () {
+        var x=document.forms[<span style="background-color: yellow;">Target 1</span>] [<span style="background-color: yellow;">Target 2</span>].value;
+        if (x <span style="background-color: yellow;">Target 3</span> null <span style="background-color: yellow;">Target 4</span>x <span style="background-color: yellow;">Target 5</span> "")
+        { 
+            alert ("first name must be filled out"):
+            return false;
+        }
+</pre>
+How should you complete the code? To answer, drag the appropriate code elements to the correct targets.<br>
+Each code element may be used once, more than once, or not at all. You may need to drag the split bar<br>
+between panes or scroll to view content.<bR>
+NOTE: Each correct selection is worth one point.</p>
+
+<span style="text-decoration: underline">Code elements:</span> 
+<ul>
+    <li>!= </li>
+    <li>"fname" </li>
+    <li>"myForm"</li>
+    <li>&&</li>
+    <li>|| </li>
+    <li>== </li>
+</ul>
+
+</div>
+</section>
+
+
+  
+  
+
+        <section class ="correcta">
+        <div class ="container"> 
+            solución:
+<xmp>
+<form name="myForm" action="doSomething.aspx"
+onsubmit="return validateForm()" method="POST">
+    first name: <input type="text" name="fname">
+    <input type="submit" value="Submit">
+</form>
+</xmp>
+
+<pre>
+function validateForm () {
+    var x=document.forms[<span style="background-color: yellow;">"myForm"</span>] [<span style="background-color: yellow;">"fname" </span>].value;
+        if (x <span style="background-color: yellow;">==  </span> null <span style="background-color: yellow;">||</span>x <span style="background-color: yellow;">==</span> "")
+    {
+        alert ("first name must be filled out"):
+    return false;
+    }
+</pre>
+</div>
+<div class="container prueba">  
+    PRUEBA <br>
+<form name="myForm" >
+    first name: <input type="text" name="fname">
+    <input type="button" value="Submit" onclick="return validateForm()">
+</form>
+</div>
+<script>
+    
+    function validateForm () {
+        var x=document.forms["myForm"] ["fname" ].value;
+        if (x == null || x == "")
+        {
+            alert ("first name must be filled out");
+            return false;
+         }
+         else
+         {
+             alert ("correcto");
+             return true;
+         }
+}
+</script>
+
+
+        </section>
+    <script lang="javascript" src="nav.js"></script>
+    <script lang="javascript" src="preguntas.js"></script>
+</body>
+</html>
+
+
+
+

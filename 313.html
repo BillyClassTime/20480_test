@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="100%, initial-scale=1.0">
+    <title>Pregunta 313</title>
+
+    <link href="site.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav class ="container">
+        <a href="" id="anterior"  ></a> 
+        <a href="" id="siguiente" ></a>
+    </nav>
+    <h1  class ="container">QUESTION 313</h1>
+    <section class="page-section">
+ 
+        <div class="container pregunta"> 
+            <div class="es" >
+                <p>Está desarrollando una página utilizando HTML y CSS3.</p>
+                <p>Necesita que la página muestre dos columnas de texto. Las columnas deben cambiar de tamaño automáticamente según el tamaño de la pantalla, pero cada columna debe tener al menos 200 px de ancho.</p>
+                <p>¿Qué marcado CSS debería utilizar?</p>
+            </div>
+            <div class ="en">
+                <p>You are developing a page by using HTML and CSS3.</p>
+                <p>You need the page to display two columns of text. The columns must resize automatically based on the size
+            of the display, but each column must be at least 200px wide.</p>
+            <p>Which CSS markup should you use?</p>
+            </div>
+
+            <ol type="A">
+                <li><a href="313_try1.html" target="_blank">Opcion1</a>
+<xmp>article {
+    columns: 2 200px;
+    }
+</xmp> 
+                </li>
+                <li><a href="313_try2.html" target="_blank">Opcion2</a>
+<xmp>
+article { 
+    columns: 1; 
+    width: 200px; 
+    columns: 2; 
+    width: 200px; 
+    }
+</xmp>
+                </li>
+                <li><a href="313_try3.html" target="_blank">Opcion3</a>
+<xmp>
+article {
+    column-count: 1;
+    min-width: 200px;
+    column-count: 2;
+    min-width: 200px;
+    }
+</xmp>
+                </li>
+                <li> <a href="313_try4.html" target="_blank">Opcion4</a>
+<xmp>article {
+column-count: 2;
+flex-basis: 200px;
+}</xmp>
+                </li>
+                </ol>
+
+        </div>
+        </section>
+
+    <section class="correcta">
+        <div class="container">
+            Correct Answer: A<br>
+        </div>
+
+        <section class="explicacion">
+            <div class="container  en">
+                Explanation:<br>
+                Use column-count and column-width together for the best control over CSS columns. You can declare each
+                property or use the shorthand columns.<br>
+                When both properties are declared, column-count is the maximum number of columns and column-width is the minimum width for those columns.<br>
+                the minimum width for those columns.<br>
+            </div>
+            <div class="container  es">
+                Explicacion:<br>
+                Utilice el column-count and column-width juntos para obtener el mejor control sobre las columnas CSS.<br>
+                Puede declarar cada propiedad o utilizar las columnas abreviadas.<br>
+                Cuando se declaran ambas propiedades, column-count es el número máximo de columnas y column-width es el ancho mínimo para esas columnas.
+            </div>
+        </section>
+        <section class="referencias container">
+            References:
+            <a href="https://css-tricks.com/guide-responsive-friendly-css-columns/">https://css-tricks.com/guide-responsive-friendly-css-columns/</a><br>
+
+            <dl>
+                <dt>column-count</dt>
+                <dd>The column-count property specifies the number of columns an element should be divided into.</dd>
+                <dt>column-gap</dt>
+                <dd>The column-gap property specifies the gap between the columns.</dd>
+                <dt>column-rule-width</dt>
+                <dd> specifies the width of the rule between columns</dd>
+                <dt>column-rule-style</dt>
+                <dd> specifies the width of the rule between columns</dd>
+                <dt>column-rule-color</dt>
+                <dd> specifies the color of the rule between columns:</dd>
+                <dt>column-span</dt>
+                <dd>
+                    specifies how many columns an element should span across.<br>
+                    <pre>h2
+                {
+                column-span: all ;
+                }
+            </pre>quiere decir que h2 abarcará todo las columnas
+                </dd>
+                <dt>column-width</dt>
+                <dd>specifies a suggested, optimal width for the columns.</dd>
+                <dt>column-fill</dt>
+                <dd>Specifies how to fill columns (balance|auto|initial|inherit);</dd>
+                <dt>columns</dt>
+                <dd>Specify the minimum width for each column, and the maximum number of columns</dd>
+            </dl>
+
+        </section>
+        <script lang="javascript" src="./nav.js"></script>
+        <script lang="javascript" src="./preguntas.js"></script>
+</body>
+</html>

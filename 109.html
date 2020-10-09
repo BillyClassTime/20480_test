@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 109</title>
+    
+    <link href="site.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="" id="anterior"></a>
+        <a href="" id="siguiente"></a>
+    </nav>
+    <h1 class="container">QUESTION 109</h1>
+    <section class="page-section">
+        <div class="container pregunta">
+            <p class="es">test una pagina que coniente el sguiente codigo javascript:</p>
+            <p class="en">
+                You test a webpage that contains the following JavaScript code:
+            </p>
+            <xmp>
+                <script type="text/javascript">
+                    onerror = unhandled;
+                    function unhandled(msg, url, line) {
+                        alert('There has been an unhandled exception');
+                    }
+                    function add() {
+                        alert($("#int1").val()) + $("#int2").val());
+                    }
+                    function divide() {
+
+                        if (isNaN($("#int1").val()) || isNaN($("#int1").val())) {
+                            throw ('One on more values are non-numeric');
+                        }
+                        alert($("#int1").val()) / $("#int2").val());
+                    }
+                </script>
+            </xmp>
+            <p class="es">tambien tiene el siguiente html:</p>
+            <p class="en">The webpage also contains the following markup:</p>
+            <xmp>
+                Integer 1: <input type="text" id="int1" /> <br />
+                Integer 2: <input type="text" id="int2" /> <br />
+                <input type="button" name="add" value="Add" onclick="add();" />
+                <input type="button" name="divide" value="Divide" onclick="divide();" />
+            </xmp>
+            <p class="es">
+                Debe determinar cómo responde la página web cuando el usuario ingresa caracteres y luego hace clic en agregar
+                y dividir botones. <br />
+                Para cada declaración de la tabla, seleccione Sí si la acción hace que la página web se comporte como se describe.
+                Seleccione No si no lo hace. Haga solo una selección en cada columna.
+            </p>
+            <p class="en">
+                You need to ascertain how the webpage responds when the user enters characters and then clicks the add
+                and divide buttons.<br />
+                For each statement in the table, select Yes if the action causes the webpage to behave as described.
+                Select No if it does not. Make only one selection in each column.
+            </p>
+
+            <p>
+                nota:
+                <ul>
+                    <li>
+ 
+                en javascript y jqeuey<br />
+                $("#int1").val()) lo toma como cadena<br />
+                por lo que $("#int1").val()) + $("#int2").val() es una concatenación
+ 
+            </li>
+            <li>
+                aunque lo tome como una candena el operador / es para numeros por lo que si puede convertirlos a numerico lo intentara
+            </li>
+            <li>   10 / 0 = infinito (no da error en javascript)</li>
+
+            <li>
+                isNaN("15654") == false<br />
+                isNaN("cadena12") == true
+            </li>
+
+
+            </ul>
+
+            </p>
+
+            <table class="es" border="1">
+                <tr>
+                    <td><input type="radio" /></td>
+                    <td><input type="radio" checked /></td>
+                    <td>
+                        si el usuario ingresa el número 2 en el cuadro de texto int1, el número 3 en el cuadro de texto int2, y luego hace clic en el botón ADD, la página web muestra un mensaje de alerta con un valor de 5
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="radio" /></td>
+                    <td><input type="radio" checked /></td>
+                    <td>
+                        si el usuario ingresa el número 2 en el cuadro de texto int1, el número 0 en el cuadro de texto int2, y luego hace clic en el botón DIVIDE, la función unhandled se ejecuta
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="radio" checked /></td>
+                    <td><input type="radio" /></td>
+                    <td>
+                        si el usuario ingresa el número 2 en el cuadro de texto int1, la letra a en el cuadro de texto int2, y luego hace clic en el botón DIVIDE, la función unhandled se ejecuta
+                    </td>
+                </tr>
+            </table>
+
+
+
+            <table class="en" border="1">
+                <tr>
+                    <td><input type="radio" /></td>
+                    <td><input type="radio" checked /></td>
+                    <td>
+                        if the user enters the number 2 in the int1 textbox, the number 3 in the int2 textbox, and then clicks the add button, the webpage displays an alert message with a value of 5
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="radio" /></td>
+                    <td><input type="radio" checked /></td>
+                    <td>
+                        if the user enters the number 2 in the int1 textbox, the number 0 in the int2 textbox, and then clicks the divide button, the unhandled javascript function runs
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="radio" checked /></td>
+                    <td><input type="radio" /></td>
+                    <td>
+                        if the user enters the number 2 in the int1 textbox, the letter a in the int2 textbox, and then clicks the divide button, the unhandled javascript function runs
+                    </td>
+                </tr>
+            </table>
+
+
+
+            <script type="text/javascript">
+                onerror = unhandled;
+                function unhandled(msg, url, line) {
+                    alert('There has been an unhandled exception');
+                }
+                function add() {
+                    alert($("#int1").val() + $("#int2").val());
+                }
+                function divide() {
+
+                    if (isNaN($("#int1").val()) || isNaN($("#int2").val())) {
+                        throw ('One on more values are non-numeric');
+                    }
+                    alert($("#int1").val() / $("#int2").val());
+                }
+            </script>
+
+            <br />
+            <br />
+            <fieldset>
+
+                <legend>Prueba</legend>
+                Integer 1: <input type="text" id="int1" /> <br />
+                Integer 2: <input type="text" id="int2" /> <br />
+                <input type="button" name="add" value="Add" onclick="add();" /><br /
+                <input type="button" name="divide" value="Divide" onclick="divide();" />
+
+            </fieldset>
+
+        </div>
+        </section>
+
+
+
+    <script lang="javascript" src="nav.js"></script>
+    <script lang="javascript" src="preguntas.js"></script>
+</body>
+</html>

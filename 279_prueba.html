@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>prueba 279</title>
+</head>
+<body>
+    <h1>Prueba 279</h1>
+    <div>
+        <form id="pf">
+            First name: <input type="text" name="firstname" value="Ben">
+            Last name: <input type="text" name="lastname" value="Smith">
+            Score: <input type="text" name="score" value="10">
+        </form>
+        llamada a la funcion serialize()
+        <button id="submitPersonform1"> serialize </button> <br />
+        llamada a la funcion serializeArray()
+         <button id="submitPersonform2"> serializeArray </button><br />
+        usar serializeArray() y transformarlo recorrecorerlo y generare name value en un formato  json
+        <button id="submitPersonform3"> serializeArray+Map </button>
+    </div>
+    <textarea id="text1" columns="800" rows="20" style="display:none;width: 800px;">
+        $("#submitPersonform1").click (function () {
+            let personFromData1 =   $("#pf").serialize();
+           alert(personFromData1);
+           alert(JSON.stringify(personFromData1) );
+         });
+    </textarea>
+    <textarea id="text2" columns="800" rows="20" style="display:none;width: 800px;">
+        $("#submitPersonform2").click (function () {
+            let personFromData2 =   $("#pf").serializeArray();
+            alert(personFromData2);
+            alert(JSON.stringify(personFromData2) );
+          });
+        </textarea>
+    <textarea id="text3" columns="800" rows="40" style="display:none;width: 800px;">
+        function getFormData(formulario){
+            var unindexed_array =  formulario.serializeArray();
+            var indexed_array = {};
+        
+            $.map(unindexed_array, function(n, i){
+                indexed_array[n['name']] = n['value'];
+            });
+        
+            return indexed_array;
+        }
+
+        let miform = $("#pf");
+        let data = getFormData(miform);
+        $("#submitPersonform3").click (function () {
+            let personFromData3 =   $("#pf").serializeArray();
+            let miform = $("#pf");
+            let data = getFormData(miform);
+            alert(JSON.stringify(data) );
+          });
+    </textarea>
+
+     
+</body>
+<script>
+function getFormData(formulario){
+    var unindexed_array =  formulario.serializeArray();
+    var indexed_array = {};
+
+    $.map(unindexed_array, function(n, i){
+        indexed_array[n['name']] = n['value'];
+    });
+
+    return indexed_array;
+}
+
+$(document).ready(function  () {
+  $("#submitPersonform1").click (function () {
+     let personFromData1 =   $("#pf").serialize();
+    alert(personFromData1);
+    alert(JSON.stringify(personFromData1) );
+    $("#text1").show();
+    $("#text2").hide();
+    $("#text3").hide();
+  });
+  $("#submitPersonform2").click (function () {
+    let personFromData2 =   $("#pf").serializeArray();
+    alert(personFromData2);
+    alert(JSON.stringify(personFromData2) );
+    $("#text1").hide();
+    $("#text2").show();
+    $("#text3").hide();
+  });
+  $("#submitPersonform3").click (function () {
+    let personFromData3 =   $("#pf").serializeArray();
+    let miform = $("#pf");
+    let data = getFormData(miform);
+    alert(JSON.stringify(data) );
+    $("#text1").hide();
+    $("#text2").hide();
+    $("#text3").show();
+  });
+
+});
+
+</script>
+</html>

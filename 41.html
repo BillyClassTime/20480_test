@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 41</title>
+    <link href="site.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        div#ejemplo, div#ejemplo5 {
+            border: 3px solid;
+            background: #b6aaaa;
+            width: 200px;
+            height: 100px;
+            top: 10%;
+            left: 10%;
+            border-radius: 25px 0px 25px 0px
+        }
+
+        div#ejemplo1 {
+            border: 3px solid;
+            background: #b6aaaa;
+            width: 200px;
+            height: 100px;
+            border-radius: 25px 25px 25px 25px;
+            top: 10%;
+            left: 10%;
+        }
+
+        div#ejemplo2 {
+            border: 20px solid;
+            background: #b6aaaa;
+            width: 160px;
+            height: 60px;
+            top: 10%;
+            left: 10%;
+            border-radius: 25px 25px 25px 25px
+        }
+
+        div#ejemplo3 {
+            border: 20px solid #b6aaaa;
+            background: black;
+            width: 160px;
+            height: 60px;
+            top: 10%;
+            left: 10%;
+            border-radius: 25px 25px 25px 25px
+        }
+    </style>
+    <script>
+        function mensaje(objeto) {
+            let stylo = "";
+            switch (objeto.id) {
+                case "ejemplo":
+                    stylo = "border:3px solid;<br>background: #b6aaaa;<br>width:200px;<br>height:100px;<br>top:10%;<br>left:10%;<br>border-radius: 25px 0px 25px 0px<br>";
+                    break;
+                case "ejemplo1":
+                    stylo = "border:3px solid;<br>background: #b6aaaa;<br>width:200px;<br>height:100px;<br>border-radius: 25px 25px 25px 25px;<br>top:10%;<br>left:10%;<br>";
+                    break;
+                case "ejemplo2":
+                    stylo = "border:20px solid;<br>background: #b6aaaa;<br>width:160px;<br>height:60px;<br>top:10%;<br>left:10%;<br>border-radius: 25px 25px 25px 25px<br>";
+                    break;
+                case "ejemplo3":
+                    stylo = "border:20px solid #b6aaaa;background: black;<br>width:160px;<br>height:60px;<br>top:10%;<br>left:10%;<br>border-radius: 25px 25px 25px 25px";
+            }
+            document.getElementById("respuesta").innerHTML = stylo;
+
+        }
+        function borrar() { document.getElementById("respuesta").innerHTML = ""; }
+    </script>
+</head>
+
+<body>
+    <nav>
+        <a href="" id="anterior"></a>
+        <a href="" id="siguiente"></a>
+    </nav>
+
+    <h1 class="container">QUESTION 8</h1>
+    <div class="pregunta">
+        <p class="es">Está desarrollando una aplicación HTML5 para una empresa. Aplica el siguiente estilo a un elemento DIV en una página.
+                  Debe enviar una ilustración en borrador de los resultados de este código.<br>
+
+
+                  ¿Qué ilustración deberías enviar? (Para responder, seleccione la ilustración apropiada en el área de respuestas)."></p>
+        <p class="en">
+            You are developing an HTML5 application for a company. You apply the following style to a DIV element on a page.<br>
+            
+            You need to submit a draft illustration of the results of this code.<br>
+            Which illustration should you submit? (To answer, select the appropriate illustration in the answer area.)<br>
+        </p>
+        <xmp>
+            div {
+                border:3px solid;
+                background: #b6aaaa;
+                width:200px;
+                height:100px;
+                top: 10%;
+                left : 10%;
+                border-radius: 25px 0px 25px 0px
+
+            }
+        </xmp>
+
+    </div>
+
+    <div style="display: flex;">
+        <div id="ejemplo" style="margin: 10px;" onmouseover="mensaje(this)" onmouseout="borrar()"></div>
+        <div id="ejemplo1" style="margin: 10px;" onmouseover="mensaje(this)" onmouseout="borrar()"></div>
+        <div id="ejemplo2" style="margin: 10px;" onmouseover="mensaje(this)" onmouseout="borrar()"></div>
+        <div id="ejemplo3" style="margin: 10px;" onmouseover="mensaje(this)" onmouseout="borrar()"></div>
+    </div>
+    <div id="respuesta" style="height: 200px;"></div>
+    <div id="explicacion">
+        <p>
+
+            Explanation:<br>
+            Example:<br>
+            div {<br>
+            border: 3px solid;<br>
+            background: #b6aaaa;<br>
+            width: 200px;<br>
+            height: 100px;<br>
+            top 10%;<br>
+            left 10%;<br>
+            border-radius: 25px 0px 25px 0px<br>
+            }<br>
+            References:<a href="https://www.w3schools.com/CSSref/css3_pr_border-radius.asp">https://www.w3schools.com/CSSref/css3_pr_border-radius.asp</a>
+        </p>
+    </div>
+    RESPUESTA
+    <div id="ejemplo5"></div>
+    <script src="preguntas.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>

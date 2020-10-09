@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 75</title>
+
+    <link href="site.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function ok() {
+            var intro = document.getElementById('span');
+            intro.style.textTransform = "capitalize";
+
+        }
+        function nook() {
+            var intro = document.getElementById('span');
+            intro.style.textTransform = "none";
+
+        }
+    </script>
+</head>
+
+<body>
+    <nav>
+        <a href="" id="anterior"></a>
+        <a href="" id="siguiente"></a>
+    </nav>
+    <h1 class="container">QUESTION 75</h1>
+    <section class="page-section">
+        <div class="container pregunta">
+          
+                <p class="es">Está desarrollando una aplicación web HTML5 y está aplicando estilo al texto.<br>
+                 Debe utilizar la propiedad CSS de transformación de texto.<br>
+                  ¿Qué valor es válido para la propiedad de transformación de texto?
+                </p>
+                <p class="en">You are developing an HTML5 web application and are styling text.<br>
+                    You need to use the text-transform CSS property.<br>
+                    Which value is valid for the text-transform property?<bR>
+                </p>
+                <ol type="A">
+                    <li><input type="radio" name="opcion" checked><span id="span" onmouseover="ok()" onmouseout="nook()">capitalize</span></li>
+                    <li style="text-transform:hidden"><input type="radio" name="opcion">Hidden</li>
+                    <li style="text-transform:italic"><input type="radio" name="opcion">Italic</li>
+                    <li style="text-transform:line-through"><input type="radio" name="opcion">Line-through</li>
+                </ol>
+            </div>
+
+            <div  class="container explicacion">
+                <p>
+                    Correct Answer: A<bR>
+                    Explanation:<bR>
+                    CSS Syntax<bR>
+                    text-transform: none|capitalize|uppercase|lowercase|initial|inherit;<bR>
+                    Example<bR>
+                    Transform text in different elements:<bR>
+                    <pre>
+    h1 {text-transform:uppercase;}
+    h2 {text-transform:capitalize;}
+    p {text-transform:lowercase;}
+</pre>
+                    Reference: CSS text-transform Property<a href="http://www.w3schools.com/cssref/pr_text_text-transform.asp">http://www.w3schools.com/cssref/pr_text_text-transform.asp</a>
+                    </div>
+</section>
+                    <script src="preguntas.js"></script>
+                    <script src="nav.js"></script>
+</body>
+</html>

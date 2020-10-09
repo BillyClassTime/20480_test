@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 245</title>
+    <link href="site.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="" id="anterior"></a>
+        <a href="" id="siguiente"></a>
+    </nav>
+    <h1  class ="container">QUESTION 245</h1>
+    <section class="page-section">
+        <div class="container pregunta"> 
+            <div class="es" >Tiene el siguiente marcado HTML.<bR>
+<xmp>
+<div>
+    <canvas id="canvas1" width="500"    height="500">
+    Your browser doesn't support HTML5.
+    </canvas>
+    <button id="btnDraw" onclick="drawOnCanvas()">Draw</button>
+</div>
+</xmp>                 
+                Debe asegurarse de que cuando un usuario presione btnDraw, se dibuje un rectángulo que tenga las siguientes características:<bR>
+                La coordenada y debe ser igual a 10.<bR>
+                La coordenada x debe ser igual a 10.<bR>
+                El rectángulo debe tener una altura y un ancho de 100.<bR>
+                La solución debe usar solo variables locales.<bR>
+                ¿Qué cinco bloques de código debería utilizar para desarrollar la solución? Para responder, mueva el código apropiado<bR>
+                bloques de la lista de bloques de código al área de respuesta y organícelos en el orden correcto.<bR>
+                NOTA: Cada selección correcta vale un punto.
+                <ul>
+                <li> var context = canvas.getContext('2d');</li>
+                <li> } </li>
+                <li> var context = canvas.getContext('3d');</li>
+                <li> context.fillRect(100,100,10,10);</li>
+                <li> var canvas = document.getElementById("canvas1");</li>
+                <li> context.fillRect(10,10,100,100);</li>
+                <li> function drawnOnCanvas() }{</li>
+                <li> var canvas = document.getElementByName("canvas1");</li>
+                </ul>
+            </div>
+            <div class ="en">
+                You have the following HTML markup.<bR>
+<xmp>
+<div>
+    <canvas id="canvas1" width="500"    height="500">
+    Your browser doesn't support HTML5.
+    </canvas>
+    <button id="btnDraw" onclick="drawOnCanvas()">Draw</button>
+</div>
+</xmp>         
+                You need to ensure that when a user presses btnDraw, a rectangle that has the following characteristics is
+                drawn:<bR>
+                The y-coordinate must equal 10.<bR>
+                The x-coordinate must equal 10.<bR>
+                The rectangle must have a height and width of 100.<bR>
+                The solution must use local variables only.<bR>
+                Which five code blocks should you use to develop the solution? To answer, move the appropriate code<bR>
+                blocks from the list of code blocks to the answer area and arrange them in the correct order.<bR>
+                NOTE: Each correct selection is worth one point.
+                <ul>
+                    <li> var context = canvas.getContext('2d');</li>
+                    <li> } </li>
+                    <li> var context = canvas.getContext('3d');</li>
+                    <li> context.fillRect(100,100,10,10);</li>
+                    <li> var canvas = document.getElementById("canvas1");</li>
+                    <li> context.fillRect(10,10,100,100);</li>
+                    <li> function drawnOnCanvas() }{</li>
+                    <li> var canvas = document.getElementByName("canvas1");</li>
+                    </ul>
+
+            </div>
+           
+    </div>
+ 
+</section>
+   
+
+<section class ="correcta">
+    <div class ="container"> 
+        Solucion: 
+    <xmp> 
+        function drawnOnCanvas() {
+            var canvas = document.getElementById("canvas1");
+            var context = canvas.getContext('2d');
+            context.fillRect(10,10,100,100);
+        }
+    </xmp> 
+    </div>
+</section>  
+
+References: 
+
+<section class="referencias container">
+    Reference: <a href="http://techfunda.com/howto/503/canvas-rectangle">http://techfunda.com/howto/503/canvas-rectangle</a> <bR>
+  
+
+    </section>
+
+
+<div class="container">  
+    <button id="btnDraw" onclick="drawOnCanvas()">Draw</button>
+    <div>
+    <canvas id="canvas1" width="200"  height="200" style="border: black 1px solid;">
+    Your browser doesn't support HTML5.
+    </canvas>
+    </div>
+</div>
+    <script>
+        function drawOnCanvas() {
+        var canvas = document.getElementById("canvas1");
+        var context = canvas.getContext('2d');
+        context.fillRect(10,10,100,100);
+    }
+    </script>
+    <script lang="javascript" src="nav.js"></script>
+    <script lang="javascript" src="preguntas.js"></script>
+</body>
+</html>

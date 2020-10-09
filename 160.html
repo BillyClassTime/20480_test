@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 160</title>
+
+    <link href="site.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="" id="anterior"></a>
+        <a href="" id="siguiente"></a>
+    </nav>
+    <header>
+        <div class="container">
+            <h1>QUESTION 160</h1>
+        </div>
+    </header>
+    <section class="page-section">
+        <div class="container pregunta">
+            <p class="es">
+                Está creando un estilo CSS3 personalizado.<br />
+                Tienes los siguientes requisitos para completar el estilo:<br />
+                Box1 tiene un contorno rojo.<br />
+                La casilla 1 contiene la casilla 2 y la casilla 2 debe permanecer dentro de la casilla 1<br />
+                Box2 debe tener un degradado de verde a negro.<br />
+                La casilla 2 debe estar rodeada de espacios en blanco.<br />
+                El estilo se parece al siguiente diagrama:<br />
+            </p>
+            <p class="en">
+                You are creating a custom CSS3 style.<br />
+                You have the following requirements to complete the style:<br />
+                Box1 has a red outline.<br />
+                Box1 contains box2, and box2 must remain inside box1<br />
+                Box2 must have a green to black gradient.<br />
+                Box2 must be surrounded by white space.<br />
+                The style resembles the following diagram:<br />
+            </p>
+            <img src="imagenes/160.png" />
+            <p class="es">
+                Necesita agregar el código CSS3 a los estilos.<br />
+                ¿Cómo debe completar el código relevante? Para responder, seleccione las opciones apropiadas en el área de respuesta.<br />
+                NOTA: Cada selección correcta vale un punto.<br />
+            </p>
+            <p class="en">
+                You need to add the CSS3 code to the styles.<br />
+                How should you complete the relevant code? To answer, select the appropriate options in the answer area.<br />
+                NOTE: Each correct selection is worth one point.<br />
+
+            </p>
+
+
+
+
+        </div>
+
+
+
+        <div class="container pregunta">
+            &lt;style&gt;<br />
+            #box1 {<br />
+            <select id="seleccion1" onchange=" selection() ">
+                <option id="1" style="background-color:green;color:white" selected>margin 5em;border:1px solid #f00</option>
+                <option id="2">margin 5em;border-color:red</option>
+                <option id="3">margin 10px 10px 10px 10 px; color:red</option>
+                <option id="4">margin 10px 10px 10px 10 px; border-style:solid</option>
+            </select><br />
+            }{<br />
+            #box2 {<br />
+            width: 6em{<br />
+            height: 4em;<br />
+            <select id="seleccion2" onchange=" selection() ">
+                <option id="1" style="background-color:green;color:white" selected> background-image: linear-gradient(to bottom,green,black);</option>
+                <option id="2"> background-image: linear-gradient(to top,green,black);</option>
+                <option id="3">background-image: radial-gradient(to bottom,green,black);</option>
+                <option id="4">background-image: radial-gradient(to top,green,black);</option>
+            </select><br />
+            <select id="seleccion3" onchange=" selection() ">
+                <option id="1">margin: 0px 0px 0px 0px;</option>
+                <option id="2" style="background-color:green;color:white" selected> margin: 10px 10px 10px 10px;</option>
+                <option id="3">padding: 0px 0px 0px 0px;</option>
+                <option id="4">padding:  10px 10px 10px 10px;</option>
+            </select><br />
+            }<br />
+            &lt;/style&gt;
+
+            <div id="box1">
+                <div id="box2" style="">
+                    
+                </div>
+            </div>
+
+        </div>
+        <br /><br /><br /><br /><br /><br />
+    </section>
+    <script>
+        function selection() {
+            seleccion1 = document.getElementById("seleccion1");
+            seleccion2 = document.getElementById("seleccion2");
+            seleccion3 = document.getElementById("seleccion3");
+            document.getElementById("box1").style.cssText = "";
+            document.getElementById("box2").style.cssText = "";
+            document.getElementById("box1").style.cssText = seleccion1.value;
+            document.getElementById("box2").style.cssText = seleccion2.value + seleccion3.value + ";width: 6em;height: 4em;";
+        }
+    </script>
+
+   
+    <script>selection();</script>
+    <script lang="javascript" src="nav.js"></script>
+    <script lang="javascript" src="preguntas.js"></script>
+</body>
+</html>

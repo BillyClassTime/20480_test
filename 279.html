@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="100%, initial-scale=1.0">
+    <title>Pregunta 279</title>
+    <link href="site.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="" id="anterior"></a>
+        <a href="" id="siguiente"></a>
+    </nav>
+    <h1  class ="container">QUESTION 279</h1>
+    <section class="page-section">
+        <div class="container pregunta">
+            <div class="es">
+                <p class="es">
+                    Tienes el siguiente marcado.<br>
+                    <xmp>
+                        <form name="personForm">
+                            First name: <input type="text" name="firstname" value="Ben">
+                            Last name: <input type="text" name="lastname" value="Smith">
+                            Score: <input type="text" name="score" value="10">
+                        </form>
+                        <button id="submitPersonform"> submit serialized form </button>
+                    </xmp>
+                </p>
+                <p class="es">
+                    Debe crear un único objeto JSON que contenga directamente los valores de personForm y envíe el objeto a una API de servidor web. El contenido del objeto JSON debe tener el formato que se muestra en el siguiente ejemplo.<br>
+                    {"firstname": "Ben", "lastname": "Smith", "score": 10}<br>
+                    ¿Cómo debe completar el código JavaScript? Para responder, seleccione las opciones apropiadas en el área de respuesta.<br>
+                    NOTA: Cada selección correcta vale un punto.<br>
+                                                                <img src="imagenes/278_1.PNG" />                                            
+                    
+                </p>
+            </div>
+            <div class="en">
+                <p class="en">
+                    You have the following markup.<br />
+                    <xmp>
+                        <form name="personForm">
+                            First name: <input type="text" name="firstname" value="Ben">
+                            Last name: <input type="text" name="lastname" value="Smith">
+                            Score: <input type="text" name="score" value="10">
+                        </form>
+                        <button id="submitPersonform"> submit serialized form </button>
+                    </xmp>
+                    You need to create a single JSON object that directly contains the values from personForm and sends the
+                    object to a Web server API. The contents of the JSON object must have the format shown in the following
+                    sample.<br />
+                    {"firstname":"Ben" , "lastname": "Smith", "score" : 10 }<br />
+
+                    How should you complete the JavaScript code? To answer, select the appropriate options in the answer
+                    area.<br>
+                    NOTE: Each correct selection is worth one point.
+                </p>
+
+                <img src="imagenes/278_1.PNG" />
+          
+            </div>
+
+
+            <p> Solucion propuesta</p>
+            <img src="imagenes/278_2.PNG" />
+    </section>
+
+
+  
+  
+
+        <section class ="correcta">
+            <div class="container">
+                solución: PARA MI NINGUNA
+
+                Pero vamos por partes :<br>
+                directamente eliminamos<br />
+                <strong>$("#document")</strong> porque no es selector valido<br>
+                <strong> .append</strong>  The append() method inserts specified content at the end of the selected elements.<br>
+                <strong>.clone</strong>   The clone() method makes a copy of selected elements, including child nodes, text and attributes.<br>
+                <strong>("personForm");</strong> eliminamos por que no es selector y .serialize y .serializeArray no llevan parametros<br>
+                <strong>(submitPersonform)</strong> eliminamos por que no es selector y .serialize y .serializeArray no llevan parametros<br>
+                <strong>(#personForm)</strong> selector y .serialize y .serializeArray no llevan parametros<br><br />
+
+                <strong>$(document)</strong>   selecciona todo el documento así que tampoco<br>
+                <strong>$("#submitPersonform")</strong>   es el botón<br><br />
+                Nos queda entonces <br><br />
+
+                    <xmp>
+                        var personFromData =  $("#personForm")             .serialize               ();
+                        .serializeArray
+                    </xmp>
+                        Tanto .serialize() como .serializeArray() sereailizan todo el contenido de un formulario<br />
+                        Pero el formato debe ser {"firstname": "Ben", "lastname": "Smith", "score": 10}<br>
+                        Pues a probar  <a href="279_prueba.html">279_prueba.html</a>
+
+            </div>  
+        </section>                                                    
+                                       
+    <script lang="javascript" src="./nav.js"></script>
+    <script lang="javascript" src="./preguntas.js"></script>
+</body>
+</html>
+
+
+
+

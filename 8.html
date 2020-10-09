@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 8 Ojo porque la solucion del pdf es erronea </title>
+    <link href="site.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="" id="anterior"></a>
+        <a href="" id="siguiente"></a>
+    </nav>
+    <h1 class="container">QUESTION 8</h1>
+    <h6 class="container">revisar porque la respuesta del pdf creo que es erronea 8</h6>
+    <section class="page-section">
+        <div class="container pregunta">
+            <p class="es">
+                Está desarrollando una aplicación web que recupera datos de un servicio web. Los datos que se recuperan son un tipo de datos binario personalizado llamado bint. Los datos también se pueden representar en XML.<br />
+                En la página se definen dos métodos existentes llamados parseXml () y parseBint ().<br />
+                La aplicación debe:<br />
+                Recupere y analice datos del servicio web utilizando formato binario si es posible<br />
+                Recupere y analice los datos del servicio web utilizando XML cuando el formato binario no es posible<br />
+                Necesita desarrollar la aplicación para cumplir con los requisitos.<br />
+                ¿Qué deberías hacer? Para responder, seleccione las opciones apropiadas en el área de respuesta.<br />
+                NOTA: Cada ID de selección correcta vale un punto<br />
+            </p>
+            <p class="en">
+                You are developing a web application that retrieves data from a web service. The data being retrieved is a
+                custom binary datatype named bint. The data can also be represented in XML.<br />
+                Two existing methods named parseXml() and parseBint() are defined on the page.<br />
+                The application must:<br />
+                Retrieve and parse data from the web service using binary format if possible<br />
+                Retrieve and parse the data from the web service using XML when binary format is not possible<br />
+                You need to develop the application to meet the requirements.<br />
+                What should you do? To answer, select the appropriate options in the answer area.<br />
+                NOTE: Each correct selection ids worth one point<br />
+            </p>
+
+
+
+            <img src="imagenes/8_001.png" />
+        </div>
+        <div class="container correcta">
+            <img src="imagenes/8_002.png" />
+        </div>
+
+
+
+
+        <div class="container  prueba">
+            nota: Otra respuesta que está erronea en el pdf..<br />
+            1.-<br />
+            accepts: no se lo que será pero no es un parametro de $.ajax()<br />
+            <strong>datatype: El tipo de datos esperado de la respuesta del servidor.</strong><br />
+            contenType: El tipo de contenido utilizado al enviar datos al servidor. El valor predeterminado es: "application / x-www-form-urlencoded<br />
+            (los otros tres ifs no tienen sentido ya que hay que definir un elemento json par clave: valor)
+            <a href="https://www.w3schools.com/jquery/ajax_ajax.asp">https://www.w3schools.com/jquery/ajax_ajax.asp</a><br />
+            2.-<br />
+            Aqui hay que elegir un if y que es el datafilter?<br />
+            dataFilter(data,type) =	A function used to handle the raw <strong>response data</strong> of the XMLHttpRequest</p>
+            Directamente descarto los dos request (ya que pregunto por response con lo cual me queda solo el if del type que es ademas el parametro que le paso)<br />
+            no puede ser request (es petición) en todo caso sería response pero ya tengo response.data<br />
+            <a href="https://www.sitepoint.com/5-jquery-ajax-examples/">https://www.sitepoint.com/5-jquery-ajax-examples/</a><br />
+
+            <p>
+                var request =$.ajax ({<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;uri:'/',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color:greenyellow"> dataType:"application/bint, text/xml",</span><br />
+                &nbsp;&nbsp;&nbsp;&nbsp;datafilter : function (data, type) {<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color:greenyellow">if (type == "application/bint")</span><br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return parseBint(data);<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return parseXML(data);<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;success: function (data) {<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start (data),<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+                });<br />
+
+            </p>
+        </div>
+
+
+
+
+    </section>
+    <script src="nav.js"></script>
+    <script src="preguntas.js"></script>
+
+   
+
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 24</title>
+    <link href="site.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        function ExceptionUsuario() {
+            this.mensaje = "object is null or undefined";
+            this.number = -2146823281;
+            this.nombre = "ExceptionUsuario";
+
+        }
+
+        function dowork() {
+
+            let e = new ExceptionUsuario();
+            throw e;
+        }
+
+
+
+        function probar1() {
+            document.getElementById("mensaje1").style.display = "";
+            if (dowork() == -2146823281)
+                alert("manejar excepcion");
+            else
+                alert("respuesta no válida ya que no se cumple doWork() == -2146823281 ");
+        }
+
+        function probar2() {
+            document.getElementById("mensaje2").style.display = "";
+            if (dowork() == "object is null or undefined ")
+                alert("manejar excepcion");
+            else
+                alert("respuesta no válida ya que no se cumple doWork() == \"object is null or undefined \"");
+        }
+
+        function probar3() {
+            document.getElementById("mensaje3").style.display = "";
+            try {
+                dowork();
+                alert("sigo");
+            }
+            catch (error) {
+                if (error.number == -2146823281) {
+                    alert("Esta es la respuesta correcta error.number " + error.number + "error.message " + error.message);
+                }
+                else { alert("Otro tipo de excepcion"); }
+            }
+        }
+        function probar4() {
+            document.getElementById("mensaje4").style.display = "";
+            try {
+                dowork();
+                alert("sigo");
+            }
+            catch (error) {
+                if (error.message == -2146823281) {
+                    { alert("la excepcion esta controlada por el try pero error.message != -2146823281" + error.message); }
+                }
+                else { alert("la excepcion esta controlada por el try pero error.message != -2146823281" + error.message); }
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <nav>
+        <a href="" id="anterior"></a>
+        <a href="" id="siguiente"></a>
+    </nav>
+
+    <h1 class="container">QUESTION 24</h1>
+    <section class="page-section">
+        <div class="container pregunta">
+            <p class="es">Está desarrollando una aplicación que utiliza una biblioteca de JavaScript de terceros llamada doWork (). La biblioteca arroja ocasionalmente un error 'el objeto es nulo o indefinido' con un código de error de -2146823281. La aplicación debe: Extraer y manejar las excepciones lanzadas por doWork () Continuar la ejecución normal del programa si ocurren otras excepciones. Necesita implementar los requisitos. ¿Qué segmento de código se debe utilizar"</p>
+            <p class="en">You are developing an application that uses a third-party JavaScript library named doWork().<bR>
+            The library occasionally throws an "object is null or undefined" error with an error code of -2146823281.<bR>
+            The application must:<bR>
+            Extract and handle the exceptions thrown by doWork()<bR>
+            Continue normal program execution if other exceptions occur<br>
+            You need to implement the requirements.<br>
+            Which code segment should you use?<bR>
+        </p>
+        <ol type="A">
+            <li>
+                <input type="radio" name="opcion" onclick="probar1()">
+<pre style="display:inline">
+if (doWork() == -2146823281) {
+...............
+}
+</pre>
+                <div id="mensaje1" style="display:none;background-color: red;">
+                    erronea excepcion no manejada
+                </div>
+            </li>
+            <li>
+                <input type="radio" name="opcion" onclick="probar2()">
+                <pre style="display:inline">
+if (doWork() == "object is null or undefined ") {
+...............
+}
+</pre>
+                <div id="mensaje2" style="display:none;background-color: red;">
+                    erronea excepcion no manejada
+                </div>
+            </li>
+            <li>
+                <input type="radio" name="opcion" onclick="probar3()">
+                <pre style="display:inline">
+try {
+doWork();
+}
+catch (e)
+if (e.number == -2146823281) {
+................
+}
+}
+</pre>
+                <div id="mensaje3" style="display:none;background-color: lightgreen;">
+                    correcta excepcion manejada e.number == -2146823281
+                </div>
+            </li>
+            <li>
+                <input type="radio" name="opcion" onclick="probar4()">
+                <pre style="display:inline">
+try {
+doWork();
+}
+catch (e)
+if (e.message == -2146823281) {
+................
+}
+}
+</pre>
+                <div id="mensaje4" style="display:none;background-color: red;">
+                    error excepcion manejada pero e.message != -2146823281 e.message=="object is null or undefined"
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="Explication">
+        <p>
+            Explanation/Reference:<br>
+            Explanation:<br>
+            The try statement lets you test a block of code for errors.<br>
+            The catch statement lets you handle the error.<br>
+            The JavaScript statements try and catch come in pairs:<br>
+            try {<br>
+            Block of code to try<br>
+            }<br>
+            catch(err) {<br>
+            Block of code to handle errors<br>
+            }<br>
+            object.number [= errorNumber]<br>
+            Returns or sets the numeric value associated with a specific error. The Error object's default property is number.<br>
+            Example: The following example causes an exception to be thrown and displays the error code that is derived from the error number<br>
+            <xmp>
+                try
+                {
+                // Cause an error.
+                var x = y;
+                }
+                catch(e)
+                {
+                document.write ("Error Code: ");
+                document.write (e.number & 0xFFFF)
+                document.write ("<br />");
+                document.write ("Facility Code: ")
+                document.write(e.number>>16 & 0x1FFF)
+                document.write ("<br />");
+                document.write ("Error Message: ")
+                document.write (e.message)
+                }
+            </xmp>
+            The output of this code is as follows.<br>
+            Error Code: 5009<br>
+            Facility Code: 10<br>
+            Error Message: 'y' is undefined<br>
+            References:<br>
+            <a href="https://www.w3schools.com/js/js_errors.asp">https://www.w3schools.com/js/js_errors.asp</a>
+        </p>
+    </div>
+    <script src="preguntas.js"></script>
+    <script src="nav.js"></script>
+</body>
+</html>

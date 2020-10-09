@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 143</title>
+    <link href="site.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="" id="anterior"></a>
+        <a href="" id="siguiente"></a>
+    </nav>
+    <header><h1 class="container">QUESTION 143</h1></header>
+    <section class="page-section">
+        <div class="container pregunta">
+            <p>
+                nota: CustomEvent no esta en la documentación del curso así que lo voy a explicar más y además la solución del pdf está incorrecta.
+                Añado la documentacion de Billy<br />
+                <a href="143_billy.html">solución billy </a><br />
+                <a href="./Readme_147_Billy.md">fichero Readme_143_Billy.md</a><br />
+            </p>
+
+            <p class="es">
+                Creas una aplicación HTML5 que incluye JavaScript. La aplicación realiza varias solicitudes AJAX. Una solicitud AJAX recupera la información del pedido de un servicio web y luego envía la información a una página web dentro de la aplicación.<br />
+                Debes crear un evento personalizado. Tiene los siguientes requisitos: <br />
+            </p>
+            <ul class="es">
+                <li>La página web debe contener un elemento HTML llamado ordersListing que recibirá la notificación del evento personalizado.</li>
+                <li>El nombre del evento debe ser ordersReceived.</li>
+                <li> El evento debe pasar un valor personalizado llamado orderCount.</li>
+                <li> El evento debe ejecutar un método JavaScript llamado showOrdersReceivedCount después de que el elemento HTML del listado de pedidos reciba el evento.</li>
+                <li> No permita que otros elementos DOM reciban el evento.</li>
+                <li>Permita que se cancele el evento.</li>
+                <li>Envíe el evento al sistema de eventos.</li>
+                <li>Debe implementar el evento personalizado para notificar elementos DOM específicos de la respuesta AJAX.</li>
+            </ul>
+            <p class="es">
+                ¿Qué tres bloques de código debería utilizar para desarrollar la solución? <br />
+                Para responder, mueva los bloques de código apropiados de la lista de bloques de código al área de respuesta y organícelos en el orden correcto.<br />
+                NOTA: Cada selección correcta vale un punto.
+            </p>
+            <p class="en">
+                You create an HTML5 application that includes JavaScript. The application performs several AJAX
+                requests. One AJAX request retrieves order information from a web service and then sends the information
+                back to a webpage within the application.<br />
+                You must create a custom event. You have the following requirements:<br />
+                <ul class="en">
+                    <li>The webpage must contain an HTML element named ordersListing that will receive the custom event notification.</li>
+                    <li>The event name must be ordersReceived.</li>
+                    <li>The event must pass a custom value named orderCount.</li>
+                    <li>The event must run a JavaScript method named showOrdersReceivedCount after the orders Listing</li>
+                    <li>HTML element receives the event.</li>
+                    <li>Do not allow other DOM elements to receive the event.</li>
+                    <li> Allow the event to be cancelled.</li>
+                    <li>Send the event into the event system.</li>
+                </ul>
+            </p>
+            <p class="en">
+                You need to implement the custom event to notify specific DOM elements of the AJAX response.<br />
+                Which three code blocks should you use to develop the solution? To answer, move the appropriate code
+                blocks from the list of code blocks to the answer area and arrange them in the correct order.<br />
+                NOTE: Each correct selection is worth one point.
+            </p>
+            
+           
+            <div>
+                <figure>
+                    <img src="imagenes/143_answer.png" />
+                    <figcaption>preguntas pdf</figcaption>
+                </figure>
+            </div>
+            Según el pdf la solución sería ésta pero es INCORRECTO
+            <div>
+                <figure>
+                    <img src="imagenes/143_responsesBad.png" />
+                    <figcaption>preguntas pdf</figcaption>
+                </figure>
+            </div>
+
+
+            <p>
+                Antes de nada vamos a comentar los procesos para crear y usar un evento personalizado.<br />
+                1. creacción<br />
+                var nuevoevento =new  <strong>CustomEvent</strong><br />
+                &nbsp;&nbsp;   las opciones es un JSON con el siguiente formato (todos los valores son opcionales)<br />
+                &nbsp;&nbsp;details : { propiedad1: valor1, propiedad2: valor, propiedad3: valor3,.... },<br />
+                &nbsp;&nbsp; bubbles : true| false // si se va a propagar hacia arriba en el DOM <br />
+                &nbsp;&nbsp; cancelable: true | false // si se permite cancelar.<br />
+                2. debe haber algun elemento del Dom que se asocie al eveto.<br />
+                &nbsp;&nbsp; var objetodom = <strong>document.getElementById</strong>("#id");<br />
+                3. este objeto debe ponerse a escuchar el evento<br />
+                &nbsp;&nbsp; objetodom.<strong>addeventListner</strong><br />
+                4. y por último disparar el evento.
+                &nbsp;&nbsp; ojetodom<strong>.dispatchEven</strong>t(evento);
+            </p>
+
+
+            <p>
+                El enunciado nos dice que hay 3 elementos.<br />
+            </p>
+            <p>Para tenerlo más claro vamos a ordenar la tabla por tipo</p>
+            <table border="1">
+                <tr>
+                    <td rowspan="2">
+                        asignar a una variable el objeto del Dom que escuchará el evento
+                    </td>
+                    <td>
+                        var ordersReceived = document.getElementById ("ordersReceived")
+                    </td>
+                    <td style=" background-color:red">
+                        Este código lo deshecho porque ordersRecieved no es un elemento del DOM
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color:greenyellow ">
+                        var ordersListing = document.getElementById ("ordersListing")
+                    </td>
+                    <td>
+                        The webpage must contain an HTML element named ordersListing that will receive the custom event notification
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="3">
+                        Buscamos el new CustomEvent, y fijate lo crea y lo lanza en una sóla instrucción ()
+                    </td>
+                    <td width="300px" style="background-color:greenyellow ">
+                        ordersListing.dispatchEvent (new CustomEvent
+                        ("ordersReceived, {
+                        detail: {orderCount:5},
+                        bubbles: false,
+                        cancelable:true
+                        }));
+                    </td>
+                    <td width="400px">
+                        orderListing dispara el nuevo evento llamado ordersReceived le pasa un OrderCount permite cancelable y bubles
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        var ordersReceivedEvent = (new CustomEvent<br />
+                        ("ordersReceived, {<br />
+                        bubbles: false,<br />
+                        cancelable:true<br />
+                        });<br />
+                    </td>
+                    <td style=" background-color:red">
+                        Este código lo deshecho porque el new CustomEvent no cumple el evento debe pasar un valor personalizado llamado orderCount
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ordersListing.dispatchEvent (new CustomEvent<br />
+                        ("ordersReceived" , {<br />
+                        detail : { orderCount : 5 },<br />
+                        <strong>bubbles: true</strong>,<br />
+                        <strong> cancelable: false</strong><br />
+                        }));<br />
+                    </td>
+                    <td style="background-color:red">
+                        al crear el customEvent no lo hace cancelable y el bubles es true
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        dispatchEvent (tambien entrarían las tres anteriores en esta categoria)
+                    </td>
+                    <td>
+                        ordersReceived.dispatchEvent
+                        ( ordersReceivedEvent);
+                    </td>
+                    <td style=" background-color:red">
+                        ordersReceivedEvent no esta definido y ya he seleccionado un dispatchEvent
+
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2">
+                        finalemente el addeventListner
+                    </td>
+                    <td>
+                        ordersListing.addeventListner
+                        ( "orders", showOrders);
+                    </td>
+                    <td style=" background-color:red">
+                        Este código lo deshecho porque showorders no esta definido orders tampoco
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color:greenyellow ">
+                        ordersListing.addEventListener
+                        ("ordersReceived", showOrdersReceivedCount);
+                    </td>
+                    <td>
+                        El nombre del evento debe ser ordersReceived
+                        El evento debe ejecutar un método de JavaScript llamado showOrdersReceivedCount.
+                        ordersListing debe escuchar el evento
+
+                    </td>
+                </tr>
+            </table>
+
+
+
+
+
+            <p class="en">
+                Explicación: * Del escenario: No permita que otros elementos DOM reciban el evento.<br />
+                Entonces: bubbles: falso<br />
+                * Desde escenario: Permitir que se cancele el evento.<br />
+                Entonces: cancellable: verdadero<br />
+                * Desde el escenario:<br />
+                La página web debe contener un elemento HTML llamado ordersListing que recibirá la notificación del evento personalizado.<br />
+                * Los eventos que se designan como burbujeantes inicialmente continuarán con el mismo flujo de eventos que los eventos no burbujeantes. El evento se envía a su EventTarget de destino y todos los detectores de eventos que se encuentran allí se activan. Los eventos burbujeantes activarán los oyentes de eventos adicionales que se encuentren siguiendo la cadena principal de EventTarget hacia arriba, verificando si hay oyentes de eventos registrados en cada EventTarget sucesivo. Esta propagación ascendente continuará hasta el Documento inclusive. Los EventListeners registrados como capturadores no se activarán durante esta fase. La cadena de EventTargets desde el objetivo del evento hasta la parte superior del árbol se determina antes del envío inicial del evento. Si se producen modificaciones en el árbol durante el procesamiento de eventos, el flujo de eventos continuará según el estado inicial del árbol.<br />
+            </p>
+
+            <p class="es">
+                Explanation:
+                * From Scenario: Do not allow other DOM elements to receive the event.<br />
+                So: bubbles: false<br />
+                * From scenario: Allow the event to be cancelled.<br />
+                So: cancellable: true<br />
+                * From scenario:<br />
+                The webpage must contain an HTML element named ordersListing that will receive the custom event
+                notification.<br />
+                * Events which are designated as bubbling will initially proceed with the same event flow as non-bubbling
+                events. The event is dispatched to its target EventTarget and any event listeners found there are triggered.
+                Bubbling events will then trigger any additional event listeners found by following the EventTarget's parent
+                chain upward, checking for any event listeners registered on each successive EventTarget. This upward
+                propagation will continue up to and including the Document. EventListeners registered as capturers will not
+                be triggered during this phase. The chain of EventTargets from the event target to the top of the tree is
+                determined before the initial dispatch of the event. If modifications occur to the tree during event
+                processing, event flow will proceed based on the initial state of the tree.<br />
+
+            </p>
+
+
+
+
+
+
+
+
+        </div>
+    </section>
+
+
+
+    <script lang="javascript" src="nav.js"></script>
+    <script lang="javascript" src="preguntas.js"></script>
+</body>
+</html>

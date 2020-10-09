@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q143</title>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            /*var loadingIcon = document.getElementById("loading");
+            // Add an event listener for the mouseover event
+            // by using a named function
+            function ShowHelpText() {
+                window.alert('loading...');
+            }
+            loadingIcon.addEventListener("mouseover", ShowHelpText, false);*/
+
+            var ordersListing = document.getElementById("ordersListing");
+            ordersListing.addEventListener("ordersReceived", showOrdersReceivedCount);
+
+        });
+
+        function recibirOrdenes() {
+            var loadingIcon = document.getElementById("loading");
+            loadingIcon.style="display:inline";
+            var webReq = getXMLHttpRequest();
+            if (webReq != null) {
+                webReq.open("GET", "./ordenes.xml", true);
+                webReq.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("ordersListing").innerHTML += (this.responseText);
+                        ordersListing.dispatchEvent(new CustomEvent("ordersReceived", {
+                            detail: {
+                                orderCount: 5
+                            },
+                            bubbles: false,
+                            cancelable: true
+                        }));
+                        loadingIcon.style="display:none";
+                    }
+                }
+                webReq.send();
+            }
+        }
+
+        function showOrdersReceivedCount(data) {
+            document.getElementById("mostrarOrdenes").innerText += data.detail.orderCount;
+        }
+
+        function getXMLHttpRequest() {
+            if (window.XMLHttpRequest) {
+                return new XMLHttpRequest();
+            }
+            else {
+                try {
+                    return new (ActiveXObject)("MSXML2.XMLHTTP.3.0");
+                } catch (e) { return null; }
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <p>
+            Se ha de crear una aplicación HTML5 que incluye JavaScript. La aplicación realiza varias solicitudes AJAX.
+            Una solicitud AJAX recupera la información del pedido de un servicio web y luego envía la información a una
+            página web dentro de la aplicación.</p>
+        <p> Se debe crear un evento personalizado. Tienes los siguientes requisitos:</p>
+        <ul>
+            <li>La página web debe contener un elemento HTML llamado ordersListing que recibirá la notificación del
+                evento personalizado.</li>
+            <li>El nombre del evento debe ser ordersReceived.</li>
+            <li>El evento debe pasar un valor personalizado llamado orderCount.</li>
+            <li>El evento debe ejecutar un método JavaScript llamado showOrdersReceivedCount después de que el elemento
+                HTML del listado de pedidos reciba el evento.</li>
+            <li>No permita que otros elementos DOM reciban el evento.</li>
+            <li>Permita que se cancele el evento.</li>
+            <li>Envíe el evento al sistema de eventos.</li>
+        </ul>
+        <p>
+            Debe implementar el evento personalizado para notificar elementos DOM específicos de la respuesta AJAX.
+            ¿Qué tres bloques de código debería utilizar para desarrollar la solución?
+            Para responder, mueva los bloques de código apropiados de la lista de bloques de código al área de respuesta
+            y organícelos en el orden correcto.
+        </p>
+    </div>
+    <xmp>
+        <p>Order Listing dispara el nuevo </p>
+        <script>
+            ordersListing.dispatchEvent(new CustomEvent("ordersReceived", {
+                detail: {
+                    orderCount: 5
+                },
+                bubbles: false,
+                cancelable: true
+            }));
+        </script>
+    </xmp>
+    <xmp>
+        <script>
+            var ordersReceivedEvent = new CustomEvent("ordersReceived", {
+                bubbles: true,
+                cancelable: true
+            });
+        </script>
+    </xmp>
+    <xmp>
+        <script>
+            ordersListing.addEventListener("orders", showOrders);
+        </script>
+    </xmp>
+    <xmp>
+        <script>
+            ordersReceived.dispatchEvent(ordersReceivedEvent);
+        </script>
+    </xmp>
+    <xmp>
+        <script>
+            var ordersReceived = document.getElementById("ordersReceived");
+        </script>
+    </xmp>
+    <xmp>
+        <script>
+            var ordersListing = document.getElementById("ordersListing");
+        </script>
+    </xmp>
+    <xmp>
+        <script>
+            ordersListing.addEventListener("ordersReceived", showOrdersReceivedCount);
+        </script>
+    </xmp>
+    <xmp>
+        <script>
+            ordersListing.dispatchEvent(new CustomEvent("ordersReceived",
+                {
+                    detail: {
+                        orderCount: 5
+                    },
+                    bubbles: true,
+                    cancelable: false
+                }));
+        </script>
+    </xmp>
+
+    <div id="ordersListing">Valores devueltos por el Ajax:</div>
+    <div id=mostrarOrdenes>La cuenta que recibe del evento personalizado:</div><br>
+    <button onclick="recibirOrdenes()">Test Custom Event</button>
+    <img style="display:none" id="loading" src="img/loader.gif" alt="loading" width="32" height="32">
+</body>
+
+</html>

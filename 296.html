@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="100%, initial-scale=1.0">
+    <title>Pregunta 296</title>
+    <link href="site.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="" id="anterior"></a>
+        <a href="" id="siguiente"></a>
+    </nav>
+    <h1  class ="container">QUESTION 296</h1>
+    <section class="page-section">
+        <div class="container pregunta"> 
+            <div class="es" >
+                <p>Está desarrollando un formulario web que incluye el siguiente HTML.<br>
+                    &lt;input id="txtValue" type="text" /&gt;<br>
+                    Debe asegurarse de ingresar un valor en txtValue antes de enviar el formulario.<br>
+                    ¿Qué segmento de código se debe utilizar?</p>
+            </div>
+            <div class ="en">
+                <p>You are developing a web form that includes the following HTML.<br>
+                &lt;input id="txtValue" type="text" /&gt;<br>
+                 You need to ensure that a value is entered into txtValue before the form is submitted.<br>
+                 Which code segment should you use?</p>
+            </div>
+
+            <ol type="A">
+            <li><xmp>
+                function validate(){
+                    var name=$("txtValue").val();
+                    if (name==null || name == "")
+                        alert ("please enter valid values");
+                    return;
+                }
+            </xmp></li>
+            <li><xmp>
+                function validate(){
+                    var name=$("txtValue").val();
+                    if (name==null && name == "")
+                        alert ("please enter valid values");
+                    return;
+                }
+            </xmp></li>
+            <li><xmp>
+                function validate(){
+                    var name=$("txtValue");
+                    if (name==null | name == "")
+                        alert ("please enter valid values");
+                    return;
+                }
+            </xmp></li>
+            
+            
+            <li><xmp>
+                function validate(){
+                    var name=$("txtValue").val();;
+                    if (name==null & name == "")
+                        alert ("please enter valid values");
+                    return;
+                }
+            </xmp></li>
+            </ol>
+
+        </div>
+        </section>
+
+        <section class ="correcta">
+        <div class ="container"> 
+
+            Correct Answer: A<bR>
+                <br>
+             consejos: <bR>
+                Si nos fijamos la principal diferencia está en los operadores<bR>
+                a) (name==null || name == "") si el valor es nulo o esta vacio alert ('rellena')<bR>
+                b) (name==null && name == "") si el valor es nulo Y esta vacio NUNCA SE PUEDE DAR QUE ALGO SEA VACIO Y nulo<bR>
+                c) (name==null | name == "") OR A NIVEL DE BITS<bR>
+                d) (name==null & name == "") AND A NIVEL DE BITS<bR>
+                
+                Por lo que la buena es la A
+        </div>
+       
+        <section class ="explicacion">
+        <div class ="container  en">
+            Explanation:<bR>
+                Check if text is a null value or an empty string.<bR>
+               
+        </div>
+        <div class ="container  es">
+            Explicacion:<br>
+            Compruebe si el texto es un valor nulo o una cadena vacía
+        </div>
+    </section>
+    <section class="referencias container">
+        References:
+        Reference: <a href="https://www.w3schools.com/jsref/dom_obj_text.asp">https://www.w3schools.com/jsref/dom_obj_text.asp</a> <bR>
+      
+
+        </section>
+    <script lang="javascript" src="nav.js"></script>
+    <script lang="javascript" src="preguntas.js"></script>
+</body>
+</html>

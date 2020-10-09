@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 92</title>
+    <link href="site.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+</head>
+
+<body>
+    <nav>
+        <a href="" id="anterior"></a>
+        <a href="" id="siguiente"></a>
+    </nav>
+    <h1 class="container">QUESTION 92 #EXCEPCIONES</h1>
+    <section class="page-section">
+        <div class="container pregunta">
+            <p class="es">Está desarrollando una aplicación que utiliza una biblioteca JavaScript. La biblioteca contiene las siguientes funciones.</p>
+            <p class="en">
+                You are developing an application that uses a JavaScript library. The library contains the following functions.
+            </p>
+            <xmp>
+                function ValidationException (number, message){
+                this.message = message;
+                this.name = "myLibrary Validation Exception";
+                this.number = number;
+                }
+                function LogicException (number, message){
+                this.message = message;
+                this.name = "myLibrary Logic Exception";
+                this.number = number;
+                }
+                function myfunction(dayOfWeek) {
+                if (dayOfWeek >7){
+                throw new ValidationException (123, "Day of week must be less than 7");
+                }
+            </xmp>
+            <p class="es">La aplicación usa el siquiente código.</p>
+            <p class="en">
+                The application uses the following code. (Line numbers are included for reference only.).
+            </p>
+            <xmp>
+                01 function doWork() {
+                02       try {
+                03           myfunction(value)
+                04            }   catch (e) {
+                05
+                06            }
+                07   }
+            </xmp>
+            <p class="es">
+                La libreria debe lanzar muchos tupos de expceciones. Las excepciones son agrupadas por categoria.<br />
+                Debe detectar e identificar las excepciones por grupo.<br />
+                Que segmento de código insertarías en la linea 5?
+            </p>
+            <p class="en">
+                The library may throw many types of exceptions. The exceptions are grouped by category.
+                You need to catch and identify the exceptions by group.
+                Which code segment should you insert at line 05?
+            </p>
+
+
+
+            <table border="1">
+                <tr>
+                    <td colspan="2">
+                        Aunque parece que es un tema de excepciones más bien es un tema de objetos...y de como saber si una instancia es de un tipo
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <xmp>
+
+                            if (typeof (e) == "ValidationException") {
+                            handleValidationException (e.message);
+                            } elseif typeof(e == "LogicException") {
+                            handleLogicException (e.message);
+                            } else
+                            { throw e;
+                            }
+                        </xmp>
+                    </td>
+                    <td>
+                        SOLUCION INCORRECTA!!!         typeof no es una funcion de javascript!!!
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <xmp>
+                            if (e instanceof ValidationException)
+                            handleValidationException (e.message);
+                            } elseif typeof(e instanceof LogicException) {
+                            handleLogicException (e.message);
+                            } else
+                            { throw e;
+                            }
+                        </xmp>
+                    </td>
+                    <td>
+                        SOLUCION CORRECTA<br />
+                        la funcion instanceof existe y me dice si una variable es de un tipo determinado... <br />
+                        <a href="92_b.html">Probemos</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <xmp>
+                            switch (e) {
+                            case ValidationException
+                            handleValidationException (e.message);
+                            break;
+                            case LogicException
+                            handleLogicException (e.message);
+                            break;
+                            defaul:
+                            throw e;
+                            }
+
+                        </xmp>
+                    </td>
+                    <td>
+                        SOLUCION INCORRECTA!!!<br />
+                        switch (e)<br />
+                        case ValidationException<br />
+
+                        swuict (excepcion)  case ValidationException<br />
+
+                        imaginate swicth (mycadena)  case String  <br />
+                        esto es un error
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <xmp>
+                            if (e.message =="ValidationException"){
+                            handleValidationException (e.message);
+                            } elseif (e.message =="LogicException") {
+                            handleLogicException (e.message);
+                            } else
+                            { throw e;
+                            }
+                        </xmp>
+                    </td>
+                    <td>
+                        SOLUCION INCORRECTA!!!<br />
+
+                        si te fijas en la funcion dayofwek crea<br />
+                        la excecpcion con mensaje="Day of week must be less than 7";<br />
+                        por lo que e.message =="ValidationException" es falso  <br />
+
+                        así que me inclino por la segunda<br />
+
+                    </td>
+                </tr>
+
+            </table>
+
+
+
+
+            <p class="es">
+                Explicación:<br />
+                La instancia de operador prueba si un objeto tiene en su cadena de prototipos la propiedad de prototipo de un constructor.<br />
+                La instancia del operador prueba la presencia de constructor.prototype en la cadena de prototipos de objetos.<br />
+                Ejemplo:<br />
+                // definiendo constructores<br />
+                función C () {}<br />
+                función D () {}<br />
+
+                var o = nuevo C ();<br />
+                // verdadero, porque: Object.getPrototypeOf (o) === C.prototype<br />
+                o instancia de C;<br />
+                // falso, porque D.prototype no está en ninguna parte de la cadena de prototipos de o<br />
+                o instancia de D;<br />
+                Referencias:<br />
+            </p>
+
+            <p class="en">
+
+                Explanation:<br />
+                The instance of operator tests whether an object has in its prototype chain the prototype property of a
+                constructor.<br />
+                The instance of operator tests presence of constructor.prototype in object prototype chain.<br />
+                Example:<br />
+                // defining constructors<br />
+                function C(){}<br />
+                function D(){}<br />
+                <br />
+                var o = new C();<br />
+                // true, because: Object.getPrototypeOf(o) === C.prototype<br />
+                o instanceof C;<br />
+                // false, because D.prototype is nowhere in o's prototype chain<br />
+                o instanceof D;<br />
+                References:<br />
+
+            </p>
+        </div>
+    </section>
+    <script lang="javascript" src="nav.js"></script>
+    <script lang="javascript" src="preguntas.js"></script>
+</body>
+</html>

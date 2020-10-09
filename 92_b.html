@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>QUESTION 92 CORRECTA</title>
+    <style>
+        p.codigo {
+            margin: 30px;
+            text-indent: -2em
+        }
+    </style>
+    <script>
+
+        function ValidationException(number, message) {
+            this.message = message;
+            this.name = "myLibrary Validation Exception";
+            this.number = number;
+        }
+        function LogicException(number, message) {
+            this.message = message;
+            this.name = "myLibrary Logic Exception";
+            this.number = number;
+        }
+        function myfunction(dayOfWeek) {
+            var dias = ["L", "M", "X", "J", "V", "S", "D"];
+
+            if (dayOfWeek == "" || dayOfWeek == null)
+                throw new LogicException(99, "campo sin rellenar");
+            if (dayOfWeek > 7)
+                throw new ValidationException(123, "Day of week must be less than 7");
+            if (dayOfWeek < 0)
+                throw new ValidationException(124, "Day of week must be greater than 7");
+
+            alert("hoy es" + dias[dayOfWeek]);
+
+        }
+
+        function handleValidationException(mensaje) {
+            alert(mensaje + " Validation");
+        }
+        function handleLogicException(mensaje) {
+            alert(mensaje + " Logica");
+        }
+        function doWork() {
+
+            var value = document.getElementById("numero").value;
+
+            try {
+                myfunction(value)
+
+            } catch (e) {
+                if (e instanceof ValidationException)
+                    handleValidationException(e.message);
+                else if (e instanceof LogicException)
+                    handleLogicException(e.message);
+                else
+                    throw e;
+            }
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+
+
+    <div style="padding:30px">
+
+        <h1>SOLUCION CORRECTA QUESTION 92</h1>
+        <fieldset>
+            <legend>Para que salte alguna excepción number ="" o menor que 0 o mayor que 6</legend>
+            <label for="numero">Numero:</label>
+            <input type="number" id="numero" /> &nbsp;
+        </fieldset>
+        <input type="button" onclick="doWork()" value="Try" />
+        <h6>Codigo fuente</h6>
+        <hR />
+
+        var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];<br />
+        <span style="color:green">// Recuerda que los objetos en javascript se crean tambien como function</span><br />
+        <span style="color:green">// 2 objetos ValidationException y LogicException</span><br />
+        <span style="color:green">throw new ValidationException  me creo un onjeto y lo lanzo y el catch(e) lo recoge</span><br />
+        <span style="color:green">
+            Recuerda para ver si un objeto es de un tipo  "cadena" ej : instanceof String"<br />
+            e instanceof ValidationException
+        </span>
+
+        <p class="codigo">
+            function ValidationException(number, message) {<br />
+            this.message = message;<br />
+            this.name = "myLibrary Validation Exception";<br />
+            this.number = number;<br />
+            }
+        </p>
+
+        <p class="codigo">
+            function LogicException(number, message) {<br />
+            this.message = message;<br />
+            this.name = "myLibrary Logic Exception";<br />
+            this.number = number;<br />
+            }
+        </p>
+
+        <p class="codigo">
+            function doWork() {<br />
+
+            var value = document.getElementById("numero").value;<br />
+
+            try {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myfunction(value)<br />
+
+            } catch (e) {<br />
+            <span style="color:red;text-size:16px">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (e instanceof ValidationException)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; handleValidationException(e.message);<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if (e instanceof LogicException)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handleLogicException(e.message);<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw e;<br />
+            </span>
+            }<br />
+            }
+        </p>
+
+        <span style="color:green">
+            /*esta funcion mira si el dia de la semana es válido y si no lo es <br />
+            lanza un throw con el objeto correspondiente
+        </span><br />
+
+        <p class="codigo">
+            function myfunction(dayOfWeek) {
+            if (dayOfWeek == "" || dayOfWeek == null)<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new LogicException(99, "campo sin rellenar");<br />
+            if (dayOfWeek > 7)<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new ValidationException(123, "Day of week must be less than 7");<br />
+            if (dayOfWeek < 0)<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new ValidationException(124, "Day of week must be greater than 7");<br />
+
+            alert("hoy es" + dias[dayOfWeek]);<br />
+
+            }
+        </p>
+
+        <p class="codigo">
+            function handleValidationException(mensaje) {<br />
+            alert(mensaje + " Validation");<br />
+            }
+        </p>
+
+        <p class="codigo">
+            function handleLogicException(mensaje) {<br />
+            alert(mensaje + " Logica");<br />
+            }
+        </p>
+
+
+
+    </div>
+</body>
+</html>

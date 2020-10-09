@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 177</title>
+
+    <link href="site.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="" id="anterior"></a>
+        <a href="" id="siguiente"></a>
+    </nav>
+    <header>
+        <div class="container">
+            <h1>QUESTION 177</h1>
+        </div>
+    </header>
+    <section class="page-section">
+        <div class="container pregunta">
+            <p class="es">
+                Desarrolla una página web utilizando HTML5.<br />
+                La interfaz de usuario de la página web debe mostrar un cuadro con líneas grises que contenga la etiqueta Ingrese su información:.<br />
+                Dentro de la caja hay dos etiquetas y dos cajas de entrada. <br />
+                El primer cuadro de entrada debe tener la etiqueta Nombre :.<br />
+                El segundo cuadro de entrada debe tener la etiqueta Correo electrónico :.<br />
+                Debajo del cuadro hay un botón Enviar.<br />
+                La interfaz de usuario debe tener el siguiente aspecto;<br />
+
+            </p>
+            <p class="en">
+                You develop a webpage by using HTML5.<br />
+                The user interface of the webpage must show a gray-lined box that contains the label Enter your information:<br />
+                Inside the box are two labels and two input boxes.<br />
+                The first input box must be labeled Name:.<br />
+                The second input box must be labeled Email:.
+                Below the box is a Submit button.<br />
+                The user interface must look like the following;<br />
+            </p>
+            <div style="width:300px">
+                <fieldset>
+                    <legend>Enter yor information:</legend>
+                    Name: <input type="text" /><br />
+                    Email:&nbsp;&nbsp;<input type="email" /><br />
+                </fieldset>
+                <button value="Submit">Submit</button>
+            </div>
+            <p class="es">
+                You need to create the user interface.<br />
+                Which markup should you use?<br />
+            </p>
+            <p class="es">
+                Necesitas crear la interfaz de usuario.<br />
+                ¿Que código de marcado deberás utilizar?<br />
+            </p>
+            <p class="en">
+                You need to create the user interface.<br />
+                Which markup should you use?<br />
+            </p>
+           <ol type="A">
+                <li>
+                    opcion
+                    <table >
+                        <tr>
+                            <td width="400px">
+                                <div style="width: 300px">
+                                    <table border="1">
+                                        <tr>
+                                            <td>
+                                                Enter yor information:<br />
+                                                Name:
+                                                <input type="text" />
+                                                <br />
+                                                Email:&nbsp;&nbsp;
+                                                <input type="email" />
+                                                <br />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <button value="Submit">Submit</button>
+                                </div>
+                            </td>
+
+                            <td>
+<xmp>
+    <table border="1">
+        <tr>
+            <td>Enter yor information:<br />
+                Name:<input type="text" /> <br />
+                Email:&nbsp;&nbsp;<input type="email" /><br />
+            </td>
+        </tr>
+    </table>
+    <button value="Submit">Submit</button>
+</xmp>
+                            </td>
+                        </tr>
+                    </table>
+                </li>
+                <li>
+                    opcion
+                    <table >
+                        <tr>
+                            <td width="400px">
+                                <div style="width: 300px">
+                                    <fieldset>
+                                        <legend>Enter yor information:</legend>
+                                        Name: <input type="text" /><br />
+                                        Email:&nbsp;&nbsp;<input type="email" /><br />
+                                    </fieldset>
+                                    <button value="Submit">Submit</button>
+                                </div>
+                            </td>
+
+                            <td>
+<xmp>
+    <fieldset>
+        <legend>Enter yor information:</legend>
+        Name: <input type="text" /><br />
+        Email:&nbsp;&nbsp;<input type="email" /><br />
+    </fieldset>
+    <button value="Submit">Submit</button>
+</xmp>
+                            </td>
+                        </tr>
+                    </table>
+                </li>
+                <li>
+                    opcion
+                    <table>
+                        <tr>
+                            <td width="400px">
+                                <div style="width: 300px">
+                                    <details>
+                                        <label>Enter yor information:</label>
+                                        Name: <input type="text" /><br />
+                                        Email:&nbsp;&nbsp;<input type="email" /><br />
+                                    </details>
+                                    <button value="Submit">Submit</button>
+                                </div>
+                            </td>
+
+                            <td>
+<xmp>
+    <details>
+        <label>Enter yor information:</label>
+        Name: <input type="text" /><br />
+        Email:&nbsp;&nbsp;<input type="email" /><br />
+    </details>
+    <button value="Submit">Submit</button>
+</xmp>
+                            </td>
+                        </tr>
+                    </table>
+                </li>
+                <li>
+                    opcion
+                    <table >
+                        <tr>
+                            <td width="400px">
+                                <div style="width: 300px">
+                                    <section>
+                                        <label>Enter yor information:</label>
+                                        Name: <input type="text" /><br />
+                                        Email:&nbsp;&nbsp;<input type="email" /><br />
+                                    </section>
+                                    <button value="Submit">Submit</button>
+                                </div>
+                            </td>
+
+                            <td>
+<xmp>
+    <section>
+        <label>Enter yor information:</label>
+        Name: <input type="text" /><br />
+        Email:&nbsp;&nbsp;<input type="email" /><br />
+    </section>
+    <button value="Submit">Submit</button>
+</xmp>
+                            </td>
+                        </tr>
+                    </table>
+                </li>
+            </ol>
+        </div>
+        <br />
+        <div class="container solucion">
+            <p class="es">
+                Solucion: Opción B<br />
+                * The &lt;fieldset&gt;<br />
+                tag is used to group related elements in a form.<br />
+                The &lt;fieldset&gt;<br />
+                tag draws a box around the related elements.<br />
+
+                The &lt;legend&gt; tag defines a caption for the &lt;fieldset&gt; element<br />
+            </p>
+            <p class="en">
+                Solution: Opción B<br />
+                * The &lt;fieldset&gt;<br />
+                tag is used to group related elements in a form.<br />
+                The &lt;fieldset&gt;<br />
+                tag draws a box around the related elements.<br />
+
+                The &lt;legend&gt; tag defines a caption for the &lt;fieldset&gt; element<br />
+            </p>
+        </div>
+    </section>
+
+
+
+    <script lang="javascript" src="nav.js"></script>
+    <script lang="javascript" src="preguntas.js"></script>
+</body>
+</html>
